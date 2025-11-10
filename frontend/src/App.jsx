@@ -1,34 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import notes from './data/noteData'
+import NoteForm from './pages/createNote';
+import EditNote from './pages/editNote';
+import Home from './pages/Home'
+import NoteDetails from './pages/noteDetails'
+import {BrowserRouter as Router , Routes, Route } from "react-router-dom";
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home note={notes}/>} />
+          <Route path="/NoteForm" element={<NoteForm/>} />
+          <Route path="/edit/:id" element={<EditNote/>} />
+          <Route path="/notes/:id" element={<NoteDetails />} />
+         
+        </Routes>
+      </Router>
+      
+    </div>
   )
 }
 
