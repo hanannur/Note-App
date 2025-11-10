@@ -40,7 +40,9 @@ function NoteDetails() {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-gray-50 to-gray-200 p-6">
-      <div className="flex justify-between items-center mb-4">
+      
+        <div className="w-full max-w-3xl bg-white shadow-md rounded-lg p-6">
+          <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold mb-4 text-gray-800">{note.title}</h1>
         <div className="flex gap-4">
           <MdModeEdit
@@ -50,6 +52,7 @@ function NoteDetails() {
           />
           
           <MdDelete className="text-red-500 hover:text-red-700 text-xl cursor-pointer transition-colors" onClick={handleDelete} />
+        </div>
         </div>
         <p className="text-gray-700 leading-relaxed whitespace-pre-line">
           {note.body}

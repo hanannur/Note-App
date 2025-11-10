@@ -35,30 +35,52 @@
 
 import initialNotes from "../data/noteData";
 import NoteCard from "../components/noteCard";
-import { getNotes } from "../api/noteAPI";
+import { getNotes  } from "../api/noteAPI";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { PlusCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom"; 
 import NoteForm  from "./createNote"; 
+  
 
 function Home() {
   const [notes, setNotes] = useState([]);
-  console.log("Home component rendered:", notes);
-
-  useEffect(() => {
-    loadNotes();
-  }, []);
   const navigate = useNavigate(); 
 
-  const loadNotes = async () => {
-    try {
-      const response = await getNotes();
-      setNotes(response.data.data)
-    } catch (error) {
-      console.error("Error fetching notes:", error);
-    }
-  };
+  console.log("Home component rendered:", notes);
+
+  // useEffect(() => {
+  //   const loadNotes = async () => {
+  //     const data = await getNotes();
+  //     setNotes(response.data.data);
+  //   };
+  //   getNotes();
+  // }, []);
+
+  // useEffect(() => {
+  //   loadNotes();
+  // }, []);
+
+  // const loadNotes = async () => {
+  //   try {
+  //     const response = await getNotes();
+  //     setNotes(response.data.data)
+  //   } catch (error) {
+  //     console.error("Error fetching notes:", error);
+  //   }
+  // };
+
+   useEffect(() => {
+    const loadNotes = async () => {
+      try {
+        const response = await getNotes(); // call API function
+        setNotes(response.data.data);       // adjust based on your API
+      } catch (error) {
+        console.error("Error fetching notes:", error);
+      }
+    };
+    loadNotes();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 flex flex-col items-center p-6">
@@ -83,7 +105,7 @@ function Home() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.2 }}
             >
-              <NoteCard note={note} />
+              <NoteCard note={note} notes={notes} setNotes={setNotes} />
             </motion.div>
           ))
         ) : (

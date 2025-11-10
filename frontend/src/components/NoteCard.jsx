@@ -17,24 +17,38 @@
 
 import { MdModeEdit, MdDelete } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
+import { deleteNotes } from "../api/noteAPI";
 import React from "react";
 
 
-function NoteCard({ note }) {
+
+function NoteCard( { note, notes, setNotes } ) {
   const shortBody = note.body.split(" ").slice(0, 5).join(" ") + "...";
 
   const navigate = useNavigate()
-
+  
+    const handleDelete = async () => {
+      await deleteNotes(note._id);
+      // navigate("/");
+      setNotes(notes.filter((n) => n._id !== note._id));
+    };
   return (
     <div onClick={() => navigate(`/notes/${note._id}`)} className="relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 border border-gray-100 min-h-[160px] flex flex-col justify-between">
       {/* Edit & Delete Icons */}
       <div className="absolute top-3 right-3 flex gap-3">
         <MdModeEdit
           className="text-blue-500 hover:text-blue-700 text-xl cursor-pointer transition-colors"
-          onClick={() => navigate(`/edit/${note.id}`)}
+          onClick={async(e) => {
+            navigate(`/edit/${note._id}`)
+            e.stopPropagation();}}
         />
         <MdDelete
           className="text-red-500 hover:text-red-700 text-xl cursor-pointer transition-colors"
+          
+          onClick={async(e) => {
+            e.stopPropagation();
+            await handleDelete(note._id);
+          }}
           
         />
       </div>

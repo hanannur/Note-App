@@ -21,6 +21,15 @@ export const createNotes = (noteData)=>axios.post(API_URL , noteData);
 export const editNotes = (id, noteData) => axios.put(`${API_URL}/${id}`, noteData);
 
 export const deleteNotes = (id) => axios.delete(`${API_URL}/${id}`);
+// export const fetchNotes = async () => {
+//   try {
+//     const response = await axios.get(API_URL);
+//     return response.data; // Assuming backend returns an array of notes
+//   } catch (error) {
+//     console.error("Failed to fetch notes:", error);
+//     return [];
+//   }
+// };
 
 
 
