@@ -43,6 +43,12 @@ function NoteDetails() {
       
         <div className="w-full max-w-3xl bg-white shadow-md rounded-lg p-6">
           <div className="flex justify-between items-center mb-4">
+            <button
+          onClick={() => navigate(-1)}
+          className="mb-4 text-blue-600 hover:underline flex items-center"
+        >
+          ← Back
+        </button>
         <h1 className="text-3xl font-bold mb-4 text-gray-800">{note.title}</h1>
         <div className="flex gap-4">
           <MdModeEdit

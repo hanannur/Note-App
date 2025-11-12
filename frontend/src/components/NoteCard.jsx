@@ -1,19 +1,4 @@
-// import { MdModeEdit  , MdDelete} from "react-icons/md";
-// import React from "react";
 
-// function NoteCard({note}){
-//     return(
-//     <div className="relative border border-white rounded-lg p-2 mb-2 ">
-//         <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
-//         <p className="text-md font-semiblod mb-2">{note.body}</p>
-//         <MdModeEdit className="absolute top-2 right-10 text-gray-500 cursor-pointer" />
-//         <MdDelete className="absolute top-2 right-2 text-gray-600 cursor-pointer"/>
-
-//     </div>
-//     )
-
-// }
-// export default NoteCard;
 
 import { MdModeEdit, MdDelete } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
@@ -53,17 +38,17 @@ function NoteCard( { note, notes, setNotes } ) {
         />
       </div>
 
-      {/* Note Title */}
+      
       <h3 className="text-lg font-semibold text-gray-800 mb-2 break-words pr-10">
         {note.title || "Untitled Note"}
       </h3>
 
-      {/* Note Body */}
+      
       <p className="text-gray-600 text-sm leading-relaxed break-words">
         {shortBody || "No content yet..."}
       </p>
 
-      {/* Optional Date */}
+      
       {note.date && (
         <p className="text-gray-400 text-xs mt-3 text-right">
           {new Date(note.date).toLocaleDateString()}
