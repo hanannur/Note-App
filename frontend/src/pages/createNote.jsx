@@ -130,7 +130,7 @@ function NoteForm({ onSave}) {
               value={title}
               onChange={(event) => setTitle(event.target.value)}
               placeholder="Enter note title..."
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
             />
           </div>
 
@@ -144,7 +144,7 @@ function NoteForm({ onSave}) {
               value={description}
               onChange={(event) => setDescription(event.target.value)}
               placeholder="Write your note details here..."
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
             />
           </div>
 
@@ -159,7 +159,7 @@ function NoteForm({ onSave}) {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition"
             >
               Create Note
             </button>

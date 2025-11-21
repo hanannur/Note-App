@@ -94,16 +94,7 @@ function EditNote() {
     setNote({ ...note, [name]: value });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   onSave && onSave({ ...initialNote, title, body: description });
-  // };
 
-//   const onCancel = () => {
-//   setTitle(note.title);
-//   setContent(note.content);
-  
-// };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,37 +1,4 @@
-// import initialNotes from '../data/noteData'
-// import NoteCard from '../components/noteCard'
-// import {getNotes} from '../api/noteAPI'
-// import { useState , useEffect} from 'react'
 
-// function Home(){
-//     const [notes, setNotes] =useState(initialNotes)
-//     console.log("Home component rendered:", notes);
-
-//     useEffect(()=>{
-//         loadNotes()
-//     },[])
-
-//     const loadNotes= async()=>{
-//         try{
-//             const response= await getNotes();
-//             setNotes(response.data)
-//         }catch(error){
-//             console.error("Error fetching notes:", error);
-//         }
-//     }
-
-//     return(
-//             <div className="bg-gray-50">
-//                 {notes.map(note => (
-//                     <NoteCard key={note.id} note={note}/>)
-//                     )}
-//             </div>
-//         )
-    
-
-// }
-
-// export default Home;
 
 import initialNotes from "../data/noteData";
 import NoteCard from "../components/noteCard";
@@ -49,26 +16,7 @@ function Home() {
 
   console.log("Home component rendered:", notes);
 
-  // useEffect(() => {
-  //   const loadNotes = async () => {
-  //     const data = await getNotes();
-  //     setNotes(response.data.data);
-  //   };
-  //   getNotes();
-  // }, []);
 
-  // useEffect(() => {
-  //   loadNotes();
-  // }, []);
-
-  // const loadNotes = async () => {
-  //   try {
-  //     const response = await getNotes();
-  //     setNotes(response.data.data)
-  //   } catch (error) {
-  //     console.error("Error fetching notes:", error);
-  //   }
-  // };
 
    useEffect(() => {
     const loadNotes = async () => {
@@ -87,7 +35,7 @@ function Home() {
       {/* Header */}
       <header className="flex items-center justify-between w-full max-w-4xl mb-8">
         <h1 className="text-3xl font-bold text-gray-800">📝 My Notes</h1>
-        <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-2xl shadow hover:bg-blue-700 transition"
+        <button className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-2xl shadow hover:bg-gray-700 transition"
         onClick={() => navigate("/NoteForm")} >
           <PlusCircle size={20} />
           Add Note

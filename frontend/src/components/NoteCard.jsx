@@ -22,7 +22,7 @@ function NoteCard( { note, notes, setNotes } ) {
       {/* Edit & Delete Icons */}
       <div className="absolute top-3 right-3 flex gap-3">
         <MdModeEdit
-          className="text-blue-500 hover:text-blue-700 text-xl cursor-pointer transition-colors"
+          className="text-gray-900 hover:text-gray-700 text-xl cursor-pointer transition-colors"
           onClick={async(e) => {
             navigate(`/edit/${note._id}`)
             e.stopPropagation();}}
