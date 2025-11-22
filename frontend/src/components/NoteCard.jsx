@@ -3,7 +3,7 @@
 import { MdModeEdit, MdDelete } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteNotes } from "../api/noteAPI";
-import React from "react";
+
 
 
 
