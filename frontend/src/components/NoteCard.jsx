@@ -14,7 +14,7 @@ function NoteCard( { note, notes, setNotes } ) {
   
     const handleDelete = async () => {
       await deleteNotes(note._id);
-      // navigate("/");
+      
       setNotes(notes.filter((n) => n._id !== note._id));
     };
   return (
